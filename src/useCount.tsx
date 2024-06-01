@@ -6,6 +6,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useDebugValue,
   useEffect,
   useMemo,
   useReducer,
@@ -61,6 +62,10 @@ export const CountProvider = ({ children }: Props) => {
   const handleAddCount = useCallback(() => {
     setCount((oldValue) => oldValue + 1);
   }, []);
+
+  // useDebugValue
+
+  useDebugValue(count || "0 count"); // use with 'React Developer Tools' plugin
 
   // useRef
 
