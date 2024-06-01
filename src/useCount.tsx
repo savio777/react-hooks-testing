@@ -7,6 +7,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useReducer,
   useRef,
   useState,
@@ -27,6 +28,7 @@ interface IValues {
   countRef: MutableRefObject<number>;
   handleAddCountRef: () => void;
   handleAddCount: () => void;
+  expensiveCount: number;
   reducer: {
     state: number;
     dispatch: Dispatch<IActionPayloadReducer>;
@@ -68,6 +70,10 @@ export const CountProvider = ({ children }: Props) => {
 
   const [state, dispatch] = useReducer(reducer, INITIAL_COUNT);
 
+  // useMemo
+
+  const expensiveCount = useMemo(() => count * Math.random() * 10, [count]);
+
   // useEffect
 
   useEffect(() => {
@@ -103,6 +109,7 @@ export const CountProvider = ({ children }: Props) => {
         handleAddCount,
         countRef,
         handleAddCountRef,
+        expensiveCount,
         reducer: {
           dispatch,
           state,

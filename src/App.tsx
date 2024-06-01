@@ -4,8 +4,14 @@ import "./App.css";
 import useCount from "./useCount";
 
 function App() {
-  const { count, handleAddCount, countRef, handleAddCountRef, reducer } =
-    useCount();
+  const {
+    count,
+    handleAddCount,
+    countRef,
+    handleAddCountRef,
+    reducer,
+    expensiveCount,
+  } = useCount();
 
   return (
     <>
@@ -27,6 +33,10 @@ function App() {
 
         <button onClick={() => reducer.dispatch({ type: "add" })}>
           count reducer is {reducer.state}
+        </button>
+
+        <button>
+          expensive count {expensiveCount.toFixed(2).replace(".", ",")}
         </button>
       </div>
     </>
