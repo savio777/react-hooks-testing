@@ -50,6 +50,8 @@ const reducer = (state: number, action: IActionPayloadReducer) => {
 export const CountContext = createContext<IValues>({} as IValues);
 
 export const CountProvider = ({ children }: Props) => {
+  // useContext
+
   console.log("context count");
 
   // useState
